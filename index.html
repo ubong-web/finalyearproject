@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="shortcut icon" type="image/jpg" href="img/logo1.png" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>CompScience | Departmental Payment System</title>
+
+    <script src="script.js"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <div></div>
+        <img
+          src="img/logo1.png"
+          alt="nacoss logo"
+          class="nav__logo"
+          id="logo"
+        />
+        <h2>Computer Science</h2>
+        <ul class="nav__links">
+          <li class="nav__item">
+            <!-- <button type="button" > Pay </button> -->
+            <a
+              class="nav__link nav_link--btn btn--show-modal"
+              href="#"
+              onclick="payWithPaystack()"
+            >
+              PayNow
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="header_title">
+        <h1>
+          Departmental
+          <!-- Green highlight effeect-->
+          <span class="highlight">payment</span>
+          made <br />
+          <span class="highlight">simple</span>
+        </h1>
+        <h4>An easy way to make Departmental payment.</h4>
+        <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
+        <img
+          src="img/hero.png"
+          class="header__img"
+          alt="Minimalist bank items"
+        />
+      </div>
+    </header>
+
+    <section class="section" id="section--1">
+      <div class="section__title">
+        <h2 class="section__description">Payment Method</h2>
+        <h3 class="section__header">
+          Multiple ways of making payment at your convience
+        </h3>
+      </div>
+    </section>
+  </body>
+
+  <script>
+    function payWithPaystack() {
+      var handler = PaystackPop.setup({
+        key: "pk_test_4ae65dcf1c45c17dc0cd3e2c38691e97286eb856",
+        email: "ubongj368@gmail.com",
+        amount: 10000,
+        ref: "" + Math.floor(Math.random() * 1000000000 + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+        metadata: {
+          custom_fields: [
+            {
+              display_name: "Mobile Number",
+              variable_name: "mobile_number",
+              value: "+2348012345678",
+            },
+          ],
+        },
+        callback: function (response) {
+          alert("success. transaction ref is " + response.reference);
+        },
+        onClose: function () {
+          alert("window closed");
+        },
+      });
+      handler.openIframe();
+    }
+  </script>
+</html>
