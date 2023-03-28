@@ -22,7 +22,7 @@ This is the software that was built for my final project from the department of 
 ### Links
 
 - Solution URL: [Add solution URL here](https://github.com/ubong-web/finalyearproject)
-- Live Site URL: [Add live site URL here](departmentalpaymentsystem.netlify.app)
+- Live Site URL: [Add live site URL here](https://departmentalpaymentsystem.netlify.app)
 
 ## My process
 
