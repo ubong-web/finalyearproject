@@ -13,28 +13,25 @@
     <link rel="stylesheet" href="style.css" />
     <title>CompScience | Departmental Payment System</title>
 
-    <script src="script.js"></script>
     <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script defer src="script.js"></script>
   </head>
   <body>
     <header class="header">
       <nav class="nav">
-        <div></div>
-        <img
-          src="img/logo1.png"
-          alt="nacoss logo"
-          class="nav__logo"
-          id="logo"
-        />
-        <h2>Computer Science</h2>
+        <div class="logo">
+          <img
+            src="img/logo1.png"
+            alt="nacoss logo"
+            class="nav__logo"
+            id="logo"
+          />
+          <!-- <h2>Computer Science</h2> -->
+        </div>
         <ul class="nav__links">
           <li class="nav__item">
             <!-- <button type="button" > Pay </button> -->
-            <a
-              class="nav__link nav_link--btn btn--show-modal"
-              href="#"
-              onclick="payWithPaystack()"
-            >
+            <a class="nav__link nav_link--btn btn--show-modal" href="#">
               PayNow
             </a>
           </li>
@@ -42,11 +39,11 @@
       </nav>
       <div class="header_title">
         <h1>
-          Departmental
+          Computer Science
           <!-- Green highlight effeect-->
-          <span class="highlight">payment</span>
-          made <br />
-          <span class="highlight">simple</span>
+          <span class="highlight">Departmental</span>
+          Payment <br />
+          <span class="highlight">System</span>
         </h1>
         <h4>An easy way to make Departmental payment.</h4>
         <button class="btn--text btn--scroll-to">Learn more &DownArrow;</button>
@@ -66,32 +63,52 @@
         </h3>
       </div>
     </section>
-  </body>
+    <footer>
+      <div class="modal hidden">
+        <button class="btn--close-modal">&times;</button>
+        <h2 class="modal__header">
+          Make payment in a <span class="highlight">Jiffy</span>
+        </h2>
+        <form class="modal__form" method="" id="paymentForm">
+          <label>Email:</label>
+          <input type="text" name="email_address" id="email_address" required />
+          <label>First Name:</label>
+          <input type="text" name="first_name" id="first_name" required />
+          <label>Last Name:</label>
+          <input type="text" name="last_name" id="last_name" required />
+          <label>Amount(Naira):</label>
+          <input type="number" name="amt" id="amt" required />
+          <button class="btn" onclick="payWithPaystack()" type="submit">
+            Pay &rarr;
+          </button>
+        </form>
+      </div>
+      <div class="overlay hidden"></div>
+    </footer>
 
-  <script>
-    function payWithPaystack() {
-      var handler = PaystackPop.setup({
-        key: "pk_test_4ae65dcf1c45c17dc0cd3e2c38691e97286eb856",
-        email: "ubongj368@gmail.com",
-        amount: 10000,
-        ref: "" + Math.floor(Math.random() * 1000000000 + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
-        metadata: {
-          custom_fields: [
-            {
-              display_name: "Mobile Number",
-              variable_name: "mobile_number",
-              value: "+2348012345678",
-            },
-          ],
-        },
-        callback: function (response) {
-          alert("success. transaction ref is " + response.reference);
-        },
-        onClose: function () {
-          alert("window closed");
-        },
-      });
-      handler.openIframe();
-    }
-  </script>
+    <!-- <script>
+      function payWithPaystack() {
+        var handler = PaystackPop.setup({
+          key: "pk_test_4ae65dcf1c45c17dc0cd3e2c38691e97286eb856",
+          email: "ubongj368@email.com",
+          amount: 10000,
+          ref: "" + Math.floor(Math.random() * 1000000000 + 1), // generates a pseudo-unique reference. Please replace with a reference you generated. Or remove the line entirely so our API will generate one for you
+          metadata: {
+            custom_fields: [
+              {
+                display_name: "Mobile Number",
+                variable_name: "mobile_number",
+                value: "+2348012345678",
+              },
+            ],
+          },
+          callback: function (response) {
+            alert("success. transaction ref is " + response.reference);
+          },
+        });
+        handler.openIframe();
+      }
+    </script> -->
+    <!-- <script src="https://js.paystack.co/v1/inline.js"></script> -->
+  </body>
 </html>
