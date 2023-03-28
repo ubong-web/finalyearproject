@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "../complete-javascript-course-master/13-Advanced-DOM-Bankist/final"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.port": 5501
+  }
+}
